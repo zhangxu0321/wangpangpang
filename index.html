@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
+<head>
     <meta charset="utf-8">
     <title></title>
     <style>
         *{margin:0;padding:0;font-family: '微软雅黑';}
+        html,body{
+          width: 100%;
+            height: 100%;
+        }
         body{background-color: #000;}
         ul,li{list-style: none;}
         ul{position: fixed;left:0;right:0;top:0;bottom:0;margin:auto;background-color: #f40;width:0px;height:0px;}
-        li{text-align: right;/*background-color: #f30;*/transform-origin: left 50%;position: absolute;left:0;top:50%;margin-top:-50%;transition: all ease .5s;color:#666;user-select: none;}
+        li{text-align: right;/*background-color: #f30;*/transform-origin: left 50%;position: absolute;left:0;top:50%;margin-top:-50%;transition: all ease .5s;
+            color: lightblue;
+            user-select: none;}
+        .back{
+            width: 100%;
+            height: 100%;
+            background: url("./image/WechatIMG3.jpeg") no-repeat center;
+            background-size: cover;
+
+        }
         .s li{width:420px;}
         .m li{width:350px;}
         .h li{width:280px;}
@@ -15,18 +29,36 @@
         .d li{width:170px;}
         .M li{width:100px;}
         .Y li{left:0%;transform:translate(-50%);word-break: keep-all;color:#fff;}
+        .name{
+            color: #fff;
+            margin: 0 auto;
+            width: 200px;
+            position: fixed;
+            top: 20%;
+            animation: slide 10s  infinite;
+        }
+        @keyframes slide {
+            from{
+                left: 100%;
+            }
+            to{
+                left: 0%;
+            }
+        }
     </style>
 </head>
 <body>
-<div style="display: none;"><script type="text/javascript" src="https://s5.cnzz.com/z_stat.php?id=1276886485&web_id=1276886485"></script></div>
-<ul class="Y"><li>2020年</li></ul>
-<ul class="s"></ul>
-<ul class="m"></ul>
-<ul class="h"></ul>
-<ul class="sx"></ul>
-<ul class="d"></ul>
-<ul class="M"></ul>
-<div style="color: #fff; margin: 0 auto;position: fixed;left: 50%;transform: translateX(-50%)">王胖胖看时间！</div>
+<div class="back">
+
+    <ul class="Y"><li>2020年</li></ul>
+    <ul class="s"></ul>
+    <ul class="m"></ul>
+    <ul class="h"></ul>
+    <ul class="sx"></ul>
+    <ul class="d"></ul>
+    <ul class="M"></ul>
+    <div class="name" style="">王胖胖看时间！</div>
+</div>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     var chnNumChar = ["零","一","二","三","四","五","六","七","八","九"];
@@ -94,7 +126,7 @@
         for (var i = 0; i < lis.length; i++) {
             var rotate = (lis.length - i + t)
             lis.eq(i).css('transform', 'rotate(' + rotate * 360 / lis.length + 'deg)')
-            rotate % lis.length == 0 && lis.eq(i).css('color', '#fff').siblings().css('color', '#666')
+            rotate % lis.length == 0 && lis.eq(i).css('color', '#fff').siblings().css('color', 'lightblue')
         }
         // 归零
         if (t == lis.length - 1) {
@@ -103,7 +135,7 @@
                 for (var i = 0; i < lis.length; i++) {
                     var rotate = lis.length - i - 1
                     lis.eq(i).css('transform', 'rotate(' + rotate * 360 / lis.length + 'deg)')
-                    rotate % lis.length == 0 && lis.eq(i).css('color', '#fff').siblings().css('color', '#666')
+                    rotate % lis.length == 0 && lis.eq(i).css('color', '#fff').siblings().css('color', 'lightblue')
                 }
                 setTimeout(function () {lis.css('transition', 'all ease .5s')}, 200)
             }, 500)
